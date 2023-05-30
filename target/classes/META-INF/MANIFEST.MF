@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: Hung Nguyen
+Build-Jdk: 17.0.5
+Implementation-Title: bookshop
+Implementation-Version: 1.0
+Implementation-Vendor-Id: com.bookshop
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-URL: http://projects.spring.io/spring-boot/bookshop/
+Created-By: Maven Integration for Eclipse
+
