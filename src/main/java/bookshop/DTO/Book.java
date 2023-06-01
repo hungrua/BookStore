@@ -13,8 +13,8 @@ public class Book {
 	private Long price;
 	private Long sold;
 	private String image;
-	private Long rate;
-	
+	private Double rate;
+	private String category_code;
 	
 	
 	public Book() {
@@ -76,10 +76,10 @@ public class Book {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public Long getRate() {
+	public Double getRate() {
 		return rate;
 	}
-	public void setRate(Long rate) {
+	public void setRate(Double rate) {
 		this.rate = rate;
 	}
 	public String getDescription() {
@@ -87,6 +87,12 @@ public class Book {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getCategory_code() {
+		return category_code;
+	}
+	public void setCategory_code(String category_code) {
+		this.category_code = category_code;
 	}
 	
 	

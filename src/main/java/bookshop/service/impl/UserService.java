@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import bookshop.DTO.User;
 import bookshop.converter.UserConverter;
 import bookshop.entity.UserEntity;
+import bookshop.repository.CartRepository;
 import bookshop.repository.RoleRepository;
 import bookshop.repository.UserRepository;
 import bookshop.service.IUserService;
@@ -23,6 +24,8 @@ public class UserService implements IUserService{
 	UserConverter userConverter;
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	CartRepository cartRepository;
 	@Autowired
 	AuthenticationManager authenticationManager;
 	@Override
@@ -41,6 +44,7 @@ public class UserService implements IUserService{
 			UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 			UserEntity entity = userRepository.findByUserName(userDetails.getUsername());
 			User result =  userConverter.toDTO(entity);
+			result.setCart_id(cartRepository.findByUser_Id(result.getId()).getId());
 			result.setEmail(null);
 			result.setPassword(null);
 			return result;

@@ -20,8 +20,7 @@ public class BookCartEntity {
 	private Long quantity;
 	@Column
 	private int status;
-	@Column
-	private Long price;
+
 	
 	@ManyToOne
 	@JoinColumn(name="book_id")
@@ -48,13 +47,6 @@ public class BookCartEntity {
 	}
 	public void setStatus(int status) {
 		this.status = status;
-	}
-	
-	public Long getPrice() {
-		return price;
-	}
-	public void setPrice(Long price) {
-		this.price = price;
 	}
 	public BookEntity getBook() {
 		return book;

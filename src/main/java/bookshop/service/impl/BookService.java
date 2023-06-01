@@ -49,7 +49,7 @@ public class BookService implements IBookService{
 		else {
 			newBook = bookConverter.toEntity(book);
 			newBook.setSold((long) 0);
-			newBook.setRate((long) 0);
+			newBook.setRate((double) 0.0);
 			newBook.setCategory(categoryRepository.findOne(book.getCategory()));
 			newBook = bookRepository.save(newBook);
 			result = bookConverter.toDTO(newBook);

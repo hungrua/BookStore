@@ -21,6 +21,9 @@ public class CommentEntity {
 	private Date commentDate;
 	@Column
 	private String content;
+	@Column
+	private Integer rate;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -59,6 +62,14 @@ public class CommentEntity {
 	}
 	public void setBook(BookEntity book) {
 		this.book = book;
+	}
+
+	public Integer getRate() {
+		return rate;
+	}
+
+	public void setRate(Integer rate) {
+		this.rate = rate;
 	}
 	
 	

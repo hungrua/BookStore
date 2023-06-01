@@ -32,6 +32,8 @@ public class BookConverter {
 		book.setPrice(entity.getPrice());
 		book.setSold(entity.getSold());
 		book.setImage(entity.getImage());
+		book.setCategory_code(entity.getCategory().getCode());
+		book.setRate(entity.getRate());
 		return book;
 	}
 	public BookEntity toEntity(BookEntity entity, Book dto) {

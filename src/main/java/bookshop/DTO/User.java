@@ -3,7 +3,7 @@ package bookshop.DTO;
 public class User {
 	private Long id;
 	private String userName,password,email;
-	private Long role_id;
+	private Long role_id,cart_id;
 	
 	
 	public User() {
@@ -39,6 +39,12 @@ public class User {
 	}
 	public void setRole_id(Long role_id) {
 		this.role_id = role_id;
+	}
+	public Long getCart_id() {
+		return cart_id;
+	}
+	public void setCart_id(Long cart_id) {
+		this.cart_id = cart_id;
 	}
 	
 }

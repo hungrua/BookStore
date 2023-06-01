@@ -35,7 +35,7 @@ public class BookEntity {
 	@Column 
 	private Long sold;
 	@Column 
-	private Long rate;
+	private Double rate;
 	@Column
 	private String image;
 	
@@ -96,10 +96,10 @@ public class BookEntity {
 	public void setSold(Long sold) {
 		this.sold = sold;
 	}
-	public Long getRate() {
+	public Double getRate() {
 		return rate;
 	}
-	public void setRate(Long rate) {
+	public void setRate(Double rate) {
 		this.rate = rate;
 	}
 	public String getImage() {
