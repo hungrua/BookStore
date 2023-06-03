@@ -30,6 +30,10 @@ public class BookCartEntity {
 	@JoinColumn(name="cart_id")
 	private CartEntity cart;
 	
+	@ManyToOne
+	@JoinColumn(name="bill_id")
+	private BillEntity bill;
+	
 	public Long getId() {
 		return id;
 	}
@@ -59,6 +63,12 @@ public class BookCartEntity {
 	}
 	public void setCart(CartEntity cart) {
 		this.cart = cart;
+	}
+	public BillEntity getBill() {
+		return bill;
+	}
+	public void setBill(BillEntity bill) {
+		this.bill = bill;
 	}
 	
 	

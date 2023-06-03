@@ -45,7 +45,10 @@ public class BookCartService implements IBookCartService {
 		List<BookCartEntity> list = bookCartRepository.findAllByCart_Id(id);
 		List<BookCart> result= new ArrayList<BookCart>();
 		for(BookCartEntity entity : list) {
-			result.add(bookCartConverter.toDTO(entity));
+			if(entity.getStatus()==1) {
+				result.add(bookCartConverter.toDTO(entity));	
+			}
+			
 		}
 		return result;
 	}
@@ -62,6 +65,4 @@ public class BookCartService implements IBookCartService {
 		entity.setQuantity(dto.getQuantity());
 		bookCartRepository.save(entity);
 	}
-	
-
 }

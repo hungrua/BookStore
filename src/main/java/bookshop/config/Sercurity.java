@@ -22,7 +22,9 @@ public class Sercurity extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable();
 		http
          .authorizeRequests()
-             .antMatchers("/user/*","/book/category/*","/book/*","/cart/add","/cart/*","/cart/delete/*","/comment/book/*","/comment/add","/comment/delete/*","/comment/edit").permitAll()
+             .antMatchers("/user/*","/book/category/*","/book/*","/cart/add","/cart/*",
+            		 "/cart/delete/*","/comment/book/*","/comment/add","/comment/delete/*",
+            		 "/comment/edit","/bill/*","/bill/delete/*","/bill/previous/*").permitAll()
              .anyRequest().authenticated();
 	}
 	@Bean

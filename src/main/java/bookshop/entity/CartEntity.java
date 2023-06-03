@@ -2,7 +2,6 @@ package bookshop.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,9 +17,7 @@ public class CartEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column
-	private Long total;
+
 	
 	@OneToOne
 	@JoinColumn(name="user_id")
@@ -39,13 +36,6 @@ public class CartEntity {
 		this.id = id;
 	}
 
-	public Long getTotal() {
-		return total;
-	}
-
-	public void setTotal(Long total) {
-		this.total = total;
-	}
 
 	public UserEntity getUser() {
 		return user;

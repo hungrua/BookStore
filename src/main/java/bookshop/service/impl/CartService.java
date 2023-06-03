@@ -18,7 +18,6 @@ public class CartService implements ICartService{
 	public Long createCart(Long user_id) {
 		CartEntity cart = new CartEntity();
 		cart.setUser(userRepository.findOne(user_id));
-		cart.setTotal((long) 0);
 		return cartRepository.save(cart).getId();
 		
 	}
