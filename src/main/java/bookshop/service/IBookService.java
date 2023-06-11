@@ -5,7 +5,7 @@ import java.util.List;
 import bookshop.DTO.Book;
 
 public interface IBookService {
-	List<Book> getAllBooks(Long id);
+	List<Book> getAllBooks(Book book);
 	Book getOneBook(Long id);
 	Book save(Book book);
 	Book update(Book book);

@@ -26,7 +26,7 @@ public class UserAPI {
 	public User addUser(@RequestBody User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		User newUser = userService.addNewUserOrAdmin(user);
-		if(newUser.getId()!=null) {
+		if(newUser.getId()!=null && newUser.getRole_id()==1) {
 			Long cart_id = cartService.createCart(newUser.getId());
 			newUser.setCart_id(cart_id);
 		}

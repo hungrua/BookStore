@@ -20,9 +20,9 @@ public class BookAPI {
 	@Autowired
 	IBookService bookService;
 	
-	@GetMapping("/book/category/{id}")
-	public List<Book> getBookByCategory(@PathVariable Long id){
-		return bookService.getAllBooks(id);
+	@PostMapping("/book/condition")
+	public List<Book> getBookByCategory(@RequestBody Book book){
+		return bookService.getAllBooks(book);
 	}
 	
 	@GetMapping("/book/{id}")

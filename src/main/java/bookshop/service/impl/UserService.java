@@ -44,7 +44,7 @@ public class UserService implements IUserService{
 			UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 			UserEntity entity = userRepository.findByUserName(userDetails.getUsername());
 			User result =  userConverter.toDTO(entity);
-			result.setCart_id(cartRepository.findByUser_Id(result.getId()).getId());
+			if(result.getRole_id()==1) result.setCart_id(cartRepository.findByUser_Id(result.getId()).getId());
 			result.setEmail(null);
 			result.setPassword(null);
 			return result;

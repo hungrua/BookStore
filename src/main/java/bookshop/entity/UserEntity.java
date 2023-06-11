@@ -42,6 +42,9 @@ public class UserEntity {
 	
 	@OneToMany(mappedBy = "user")
 	private List<CommentEntity> comments ;
+	
+	@OneToMany(mappedBy = "user")
+	private List<FavouriteEntity> favourites;
 
 	public void setId(Long id) {
 		this.id = id;
@@ -93,6 +96,14 @@ public class UserEntity {
 
 	public void setComments(List<CommentEntity> comments) {
 		this.comments = comments;
+	}
+
+	public List<FavouriteEntity> getFavourites() {
+		return favourites;
+	}
+
+	public void setFavourites(List<FavouriteEntity> favourites) {
+		this.favourites = favourites;
 	}
 	
 	

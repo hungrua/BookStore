@@ -47,6 +47,12 @@ public class BookEntity {
 	@OneToMany(mappedBy = "book")
 	private List<BookCartEntity> books;
 	
+	@OneToMany(mappedBy = "book")
+	private List<CommentEntity> comments;
+	
+	@OneToMany(mappedBy="book")
+	private List<FavouriteEntity> favourites;
+	
 	
 	public Long getId() {
 		return id;
@@ -119,6 +125,19 @@ public class BookEntity {
 	}
 	public void setBooks(List<BookCartEntity> books) {
 		this.books = books;
+	}
+	
+	public List<CommentEntity> getComments() {
+		return comments;
+	}
+	public void setComments(List<CommentEntity> comments) {
+		this.comments = comments;
+	}
+	public List<FavouriteEntity> getFavourites() {
+		return favourites;
+	}
+	public void setFavourites(List<FavouriteEntity> favourites) {
+		this.favourites = favourites;
 	}
 	
 	

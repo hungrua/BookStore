@@ -25,8 +25,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserEntity user = userRepository.findByUserName(username);
 		if(user!=null) {
+			String role = user.getRole().getId()==1?"USER":"ADMIN";
 			List<GrantedAuthority> grandList = new ArrayList<GrantedAuthority>();
-			GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole().getRole_code());
+			GrantedAuthority authority = new SimpleGrantedAuthority(role);
 			grandList.add(authority);
 			UserDetails myUser = (UserDetails) new User(username,user.getPassword(),grandList);
 			return myUser;

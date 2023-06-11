@@ -7,8 +7,10 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import bookshop.service.impl.CustomUserDetailsService;
 
 
 @Configuration
@@ -16,16 +18,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class Sercurity extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private CustomUserDetailsService userDetailsService;
 	@Override
 	protected void configure (HttpSecurity http) throws Exception{
 		http.cors().and().csrf().disable();
 		http
          .authorizeRequests()
-             .antMatchers("/user/*","/book/category/*","/book/*","/cart/add","/cart/*",
+             .antMatchers("/user/*","/book/condition","/book/*","/cart/add","/cart/*",
             		 "/cart/delete/*","/comment/book/*","/comment/add","/comment/delete/*",
-            		 "/comment/edit","/bill/*","/bill/delete/*","/bill/previous/*").permitAll()
-             .anyRequest().authenticated();
+            		 "/comment/edit","/bill/*","/bill/delete/*","/bill/previous/*","/favourite/delete/*",
+            		 "/favourite/*").permitAll();
+
 	}
 	@Bean
     public BCryptPasswordEncoder passwordEncoder() {

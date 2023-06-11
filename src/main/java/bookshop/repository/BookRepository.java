@@ -15,4 +15,6 @@ public interface BookRepository extends JpaRepository<BookEntity, Long> {
 	List<BookEntity> findByCategory(@Param("category_id")Long id);
 	@Query(value="SELECT * FROM BOOK where title=?1 and author=?2", nativeQuery = true)
 	List<BookEntity> findByTitleAndAuthor(@Param("title") String title, @Param("author") String author);
+	@Query(value="SELECT * FROM book WHERE title LIKE CONCAT('%', ?, '%'); ", nativeQuery =  true )
+	List<BookEntity> findByTitleKeyword(String keyword);
 }

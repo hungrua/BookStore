@@ -29,8 +29,9 @@ public class CommentService implements ICommentService {
 	@Override
 	public List<Comment> getAllCommentByBook(Long id) {
 		List<Comment> result = new ArrayList<Comment>();
-		List<CommentEntity> list = commentRepository.findAllByBook_Id(id);
+//		List<CommentEntity> list = commentRepository.findAllByBook_Id(id);
 		BookEntity book = bookRepository.findOne(id);
+		List<CommentEntity> list = book.getComments();
 		Double sum = 0.0; 
 		if(list.size()>0) {
 			for(CommentEntity x : list) {
